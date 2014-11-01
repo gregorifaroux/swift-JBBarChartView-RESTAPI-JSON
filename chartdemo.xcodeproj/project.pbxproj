@@ -7,12 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B53BD83846F1CB5D70072FCA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B6A3935C211BFE79549499B /* libPods.a */; };
 		F7489B961A032EFB00C122A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7489B951A032EFB00C122A8 /* AppDelegate.swift */; };
 		F7489B981A032EFB00C122A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7489B971A032EFB00C122A8 /* ViewController.swift */; };
 		F7489B9B1A032EFB00C122A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7489B991A032EFB00C122A8 /* Main.storyboard */; };
 		F7489B9D1A032EFB00C122A8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7489B9C1A032EFB00C122A8 /* Images.xcassets */; };
 		F7489BA01A032EFB00C122A8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7489B9E1A032EFB00C122A8 /* LaunchScreen.xib */; };
 		F7489BAC1A032EFB00C122A8 /* chartdemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7489BAB1A032EFB00C122A8 /* chartdemoTests.swift */; };
+		F7489BC41A03362B00C122A8 /* JBBarChartFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7489BB81A03362B00C122A8 /* JBBarChartFooterView.m */; };
+		F7489BC51A03362B00C122A8 /* JBChartHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7489BBB1A03362B00C122A8 /* JBChartHeaderView.m */; };
+		F7489BC61A03362B00C122A8 /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7489BBC1A03362B00C122A8 /* json.swift */; };
+		F7489BC71A03362B00C122A8 /* JBChartInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7489BBF1A03362B00C122A8 /* JBChartInformationView.m */; };
+		F7489BC81A03362B00C122A8 /* JBChartTooltipTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7489BC11A03362B00C122A8 /* JBChartTooltipTipView.m */; };
+		F7489BC91A03362B00C122A8 /* JBChartTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7489BC31A03362B00C122A8 /* JBChartTooltipView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +33,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		492CBB8BECE3AE6F54D15C00 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9B6A3935C211BFE79549499B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5924B4368EDEBEE86AE0ADD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F7489B901A032EFB00C122A8 /* chartdemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chartdemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7489B941A032EFB00C122A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7489B951A032EFB00C122A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +46,18 @@
 		F7489BA51A032EFB00C122A8 /* chartdemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chartdemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7489BAA1A032EFB00C122A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7489BAB1A032EFB00C122A8 /* chartdemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chartdemoTests.swift; sourceTree = "<group>"; };
+		F7489BB51A0332C900C122A8 /* BChartView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BChartView-Bridging-Header.h"; sourceTree = "<group>"; };
+		F7489BB71A03362B00C122A8 /* JBBarChartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartFooterView.h; sourceTree = "<group>"; };
+		F7489BB81A03362B00C122A8 /* JBBarChartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartFooterView.m; sourceTree = "<group>"; };
+		F7489BBA1A03362B00C122A8 /* JBChartHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartHeaderView.h; sourceTree = "<group>"; };
+		F7489BBB1A03362B00C122A8 /* JBChartHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartHeaderView.m; sourceTree = "<group>"; };
+		F7489BBC1A03362B00C122A8 /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
+		F7489BBE1A03362B00C122A8 /* JBChartInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartInformationView.h; sourceTree = "<group>"; };
+		F7489BBF1A03362B00C122A8 /* JBChartInformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartInformationView.m; sourceTree = "<group>"; };
+		F7489BC01A03362B00C122A8 /* JBChartTooltipTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartTooltipTipView.h; sourceTree = "<group>"; };
+		F7489BC11A03362B00C122A8 /* JBChartTooltipTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartTooltipTipView.m; sourceTree = "<group>"; };
+		F7489BC21A03362B00C122A8 /* JBChartTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartTooltipView.h; sourceTree = "<group>"; };
+		F7489BC31A03362B00C122A8 /* JBChartTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartTooltipView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B53BD83846F1CB5D70072FCA /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +79,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE287A2423317470F1F964CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A5924B4368EDEBEE86AE0ADD /* Pods.debug.xcconfig */,
+				492CBB8BECE3AE6F54D15C00 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CE075583502C972F9C6548A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B6A3935C211BFE79549499B /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F7489B871A032EFB00C122A8 = {
 			isa = PBXGroup;
 			children = (
 				F7489B921A032EFB00C122A8 /* chartdemo */,
 				F7489BA81A032EFB00C122A8 /* chartdemoTests */,
 				F7489B911A032EFB00C122A8 /* Products */,
+				BE287A2423317470F1F964CA /* Pods */,
+				CE075583502C972F9C6548A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +119,17 @@
 		F7489B921A032EFB00C122A8 /* chartdemo */ = {
 			isa = PBXGroup;
 			children = (
+				F7489BB61A03362B00C122A8 /* Footers */,
+				F7489BB91A03362B00C122A8 /* Headers */,
+				F7489BBC1A03362B00C122A8 /* json.swift */,
+				F7489BBD1A03362B00C122A8 /* Misc */,
 				F7489B951A032EFB00C122A8 /* AppDelegate.swift */,
 				F7489B971A032EFB00C122A8 /* ViewController.swift */,
 				F7489B991A032EFB00C122A8 /* Main.storyboard */,
 				F7489B9C1A032EFB00C122A8 /* Images.xcassets */,
 				F7489B9E1A032EFB00C122A8 /* LaunchScreen.xib */,
 				F7489B931A032EFB00C122A8 /* Supporting Files */,
+				F7489BB51A0332C900C122A8 /* BChartView-Bridging-Header.h */,
 			);
 			path = chartdemo;
 			sourceTree = "<group>";
@@ -112,6 +159,37 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F7489BB61A03362B00C122A8 /* Footers */ = {
+			isa = PBXGroup;
+			children = (
+				F7489BB71A03362B00C122A8 /* JBBarChartFooterView.h */,
+				F7489BB81A03362B00C122A8 /* JBBarChartFooterView.m */,
+			);
+			path = Footers;
+			sourceTree = "<group>";
+		};
+		F7489BB91A03362B00C122A8 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				F7489BBA1A03362B00C122A8 /* JBChartHeaderView.h */,
+				F7489BBB1A03362B00C122A8 /* JBChartHeaderView.m */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		F7489BBD1A03362B00C122A8 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				F7489BBE1A03362B00C122A8 /* JBChartInformationView.h */,
+				F7489BBF1A03362B00C122A8 /* JBChartInformationView.m */,
+				F7489BC01A03362B00C122A8 /* JBChartTooltipTipView.h */,
+				F7489BC11A03362B00C122A8 /* JBChartTooltipTipView.m */,
+				F7489BC21A03362B00C122A8 /* JBChartTooltipView.h */,
+				F7489BC31A03362B00C122A8 /* JBChartTooltipView.m */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +197,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F7489BAF1A032EFB00C122A8 /* Build configuration list for PBXNativeTarget "chartdemo" */;
 			buildPhases = (
+				767C2ABA80F7B103043053CB /* Check Pods Manifest.lock */,
 				F7489B8C1A032EFB00C122A8 /* Sources */,
 				F7489B8D1A032EFB00C122A8 /* Frameworks */,
 				F7489B8E1A032EFB00C122A8 /* Resources */,
+				36262BE489B8ACC65F4D78F2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,11 +287,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		36262BE489B8ACC65F4D78F2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		767C2ABA80F7B103043053CB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F7489B8C1A032EFB00C122A8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7489BC71A03362B00C122A8 /* JBChartInformationView.m in Sources */,
+				F7489BC51A03362B00C122A8 /* JBChartHeaderView.m in Sources */,
+				F7489BC41A03362B00C122A8 /* JBBarChartFooterView.m in Sources */,
+				F7489BC91A03362B00C122A8 /* JBChartTooltipView.m in Sources */,
+				F7489BC81A03362B00C122A8 /* JBChartTooltipTipView.m in Sources */,
+				F7489BC61A03362B00C122A8 /* json.swift in Sources */,
 				F7489B981A032EFB00C122A8 /* ViewController.swift in Sources */,
 				F7489B961A032EFB00C122A8 /* AppDelegate.swift in Sources */,
 			);
@@ -334,21 +453,25 @@
 		};
 		F7489BB01A032EFB00C122A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5924B4368EDEBEE86AE0ADD /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = chartdemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "chartdemo/BChartView-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		F7489BB11A032EFB00C122A8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 492CBB8BECE3AE6F54D15C00 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = chartdemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "chartdemo/BChartView-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -405,6 +528,7 @@
 				F7489BB11A032EFB00C122A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F7489BB21A032EFB00C122A8 /* Build configuration list for PBXNativeTarget "chartdemoTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +537,7 @@
 				F7489BB41A032EFB00C122A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

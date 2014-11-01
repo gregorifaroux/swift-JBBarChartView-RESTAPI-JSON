@@ -9,5 +9,18 @@
 #ifndef chartdemo_BChartView_Bridging_Header_h
 #define chartdemo_BChartView_Bridging_Header_h
 
+#import <UIKit/UIKit.h>
+#import "JBChartView/JBChartView.h"
+#import "JBChartView/JBBarChartView.h"
+#import "JBChartView/JBLineChartView.h"
+
+
+#import "Headers/JBChartHeaderView.h"
+
+#import "Footers/JBBarChartFooterView.h"
+
+#import "Misc/JBChartInformationView.h"
+#import "Misc/JBChartTooltipTipView.h"
+#import "Misc/JBChartTooltipView.h"
 
 #endif
