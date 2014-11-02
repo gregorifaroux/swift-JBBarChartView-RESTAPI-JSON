@@ -14,7 +14,5 @@
 #import "JBChartView/JBBarChartView.h"
 #import "JBChartView/JBLineChartView.h"
 
-#import "Misc/JBChartInformationView.h"
-
 
 #endif

@@ -15,7 +15,8 @@
 		F7489BA01A032EFB00C122A8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7489B9E1A032EFB00C122A8 /* LaunchScreen.xib */; };
 		F7489BAC1A032EFB00C122A8 /* chartdemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7489BAB1A032EFB00C122A8 /* chartdemoTests.swift */; };
 		F7489BC61A03362B00C122A8 /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7489BBC1A03362B00C122A8 /* json.swift */; };
-		F7489BC71A03362B00C122A8 /* JBChartInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7489BBF1A03362B00C122A8 /* JBChartInformationView.m */; };
+		F75484DA1A06589300F18809 /* ChartInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75484D91A06589300F18809 /* ChartInformationView.swift */; };
+		F75484DE1A06610100F18809 /* ChartInformationValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75484DD1A06610100F18809 /* ChartInformationValueView.swift */; };
 		F7F4AA8A1A05C8FB006B5680 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4AA881A05C8FB006B5680 /* FooterView.swift */; };
 		F7F4AA8B1A05C8FB006B5680 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4AA891A05C8FB006B5680 /* HeaderView.swift */; };
 		F7F4AA8D1A05DBA1006B5680 /* TooltipTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4AA8C1A05DBA1006B5680 /* TooltipTipView.swift */; };
@@ -48,8 +49,8 @@
 		F7489BAB1A032EFB00C122A8 /* chartdemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chartdemoTests.swift; sourceTree = "<group>"; };
 		F7489BB51A0332C900C122A8 /* BChartView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BChartView-Bridging-Header.h"; sourceTree = "<group>"; };
 		F7489BBC1A03362B00C122A8 /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
-		F7489BBE1A03362B00C122A8 /* JBChartInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartInformationView.h; sourceTree = "<group>"; };
-		F7489BBF1A03362B00C122A8 /* JBChartInformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartInformationView.m; sourceTree = "<group>"; };
+		F75484D91A06589300F18809 /* ChartInformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartInformationView.swift; sourceTree = "<group>"; };
+		F75484DD1A06610100F18809 /* ChartInformationValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartInformationValueView.swift; sourceTree = "<group>"; };
 		F7F4AA881A05C8FB006B5680 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		F7F4AA891A05C8FB006B5680 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		F7F4AA8C1A05DBA1006B5680 /* TooltipTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TooltipTipView.swift; sourceTree = "<group>"; };
@@ -117,6 +118,8 @@
 			children = (
 				F7489BB51A0332C900C122A8 /* BChartView-Bridging-Header.h */,
 				F7489B951A032EFB00C122A8 /* AppDelegate.swift */,
+				F75484DD1A06610100F18809 /* ChartInformationValueView.swift */,
+				F75484D91A06589300F18809 /* ChartInformationView.swift */,
 				F7F4AA881A05C8FB006B5680 /* FooterView.swift */,
 				F7F4AA891A05C8FB006B5680 /* HeaderView.swift */,
 				F7489BBC1A03362B00C122A8 /* json.swift */,
@@ -126,7 +129,6 @@
 				F7489B9C1A032EFB00C122A8 /* Images.xcassets */,
 				F7489B9E1A032EFB00C122A8 /* LaunchScreen.xib */,
 				F7489B991A032EFB00C122A8 /* Main.storyboard */,
-				F7489BBD1A03362B00C122A8 /* Misc */,
 				F7489B931A032EFB00C122A8 /* Supporting Files */,
 			);
 			path = chartdemo;
@@ -155,15 +157,6 @@
 				F7489BAA1A032EFB00C122A8 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		F7489BBD1A03362B00C122A8 /* Misc */ = {
-			isa = PBXGroup;
-			children = (
-				F7489BBE1A03362B00C122A8 /* JBChartInformationView.h */,
-				F7489BBF1A03362B00C122A8 /* JBChartInformationView.m */,
-			);
-			path = Misc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,13 +294,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7489BC71A03362B00C122A8 /* JBChartInformationView.m in Sources */,
 				F7F4AA8A1A05C8FB006B5680 /* FooterView.swift in Sources */,
 				F7F4AA8D1A05DBA1006B5680 /* TooltipTipView.swift in Sources */,
 				F7F4AA8B1A05C8FB006B5680 /* HeaderView.swift in Sources */,
 				F7489BC61A03362B00C122A8 /* json.swift in Sources */,
+				F75484DA1A06589300F18809 /* ChartInformationView.swift in Sources */,
 				F7489B981A032EFB00C122A8 /* ViewController.swift in Sources */,
 				F7489B961A032EFB00C122A8 /* AppDelegate.swift in Sources */,
+				F75484DE1A06610100F18809 /* ChartInformationValueView.swift in Sources */,
 				F7F4AA8F1A05DF8C006B5680 /* TooltipView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,7 +14,12 @@ class FooterView : UIView {
     var padding = CGFloat(4);
     var rightLabel = UILabel();
     var leftLabel = UILabel();
-      
+    
+    override convenience init() {
+        self.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+    }
+
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 

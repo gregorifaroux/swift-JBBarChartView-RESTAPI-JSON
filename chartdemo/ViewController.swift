@@ -16,11 +16,11 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
     let _padding:CGFloat = 10;
     
     let _barChartView = JBBarChartView();
-    let _headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
-    let _informationView = JBChartInformationView();
-    let _tooltipView = TooltipView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
-    let _tooltipTipView = TooltipTipView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
-    let _footerView = FooterView(frame: CGRect(x: 0, y: 0, width: 0, height: 0));
+    let _headerView = HeaderView();
+    let _informationView = ChartInformationView();
+    let _tooltipView = TooltipView();
+    let _tooltipTipView = TooltipTipView();
+    let _footerView = FooterView();
 
     
     var _chartData: [Float] = [];
