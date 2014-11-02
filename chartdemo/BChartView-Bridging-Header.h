@@ -15,7 +15,6 @@
 #import "JBChartView/JBLineChartView.h"
 
 #import "Misc/JBChartInformationView.h"
-#import "Misc/JBChartTooltipTipView.h"
-#import "Misc/JBChartTooltipView.h"
+
 
 #endif
