@@ -14,11 +14,6 @@
 #import "JBChartView/JBBarChartView.h"
 #import "JBChartView/JBLineChartView.h"
 
-
-#import "Headers/JBChartHeaderView.h"
-
-#import "Footers/JBBarChartFooterView.h"
-
 #import "Misc/JBChartInformationView.h"
 #import "Misc/JBChartTooltipTipView.h"
 #import "Misc/JBChartTooltipView.h"
