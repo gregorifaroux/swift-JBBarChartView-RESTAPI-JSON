@@ -27,11 +27,11 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
     var _chartLegend: [String] = [];
     
     func buttonRefresh(sender: AnyObject) {
+        _barChartView.setState(JBChartViewState.Collapsed, animated: true)
         _headerView.subtitleLabel.text = "Loading...";
         println("refresh")
         _chartData = [];
         _chartLegend = [];
-        _barChartView.reloadData();
         downloadData()
     }
     
@@ -58,6 +58,8 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
             _headerView.subtitleLabel.text = json["city"]["name"].asString;
 
             _barChartView.reloadData()
+            _barChartView.setState(JBChartViewState.Expanded, animated: true)
+
         }
         
   //          println(json["REMOTE_ADDR"].asString)
