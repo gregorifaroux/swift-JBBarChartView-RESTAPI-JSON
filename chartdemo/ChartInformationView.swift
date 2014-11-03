@@ -23,18 +23,12 @@ class ChartInformationView: UIView {
     let _valueView = ChartInformationValueView();
 
     let _titleLabel = UILabel();
-    let _valueLabel = UILabel();
     let _separatorView = UIView()
     
     func setTitleText(aText:String) {
         _titleLabel.text = aText;
     }
 
-    func setValueText(aText:String) {
-        _valueLabel.text = aText;
-    }
-
-    
     
     override convenience init() {
         self.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
