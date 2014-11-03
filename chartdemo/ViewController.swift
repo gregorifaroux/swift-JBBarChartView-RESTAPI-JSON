@@ -29,7 +29,6 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
     func buttonRefresh(sender: AnyObject) {
         _barChartView.setState(JBChartViewState.Collapsed, animated: true)
         _headerView.subtitleLabel.text = "Loading...";
-        println("refresh")
         _chartData = [];
         _chartLegend = [];
         downloadData()
@@ -40,14 +39,12 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
         var results = [];
         var dateFormatter = NSDateFormatter();
         dateFormatter.dateFormat = "MM-dd";
-        println("WS.downloaddata")
+
         let json = JSON(url:"http://api.openweathermap.org/data/2.5/forecast/daily?q=atlanta&mode=json&units=metric&cnt=5")
         if let days = json["list"].asArray {
             var i:Int = 0 ;
             for day in days {
-                println("day")
                 var temperature:Double = day["temp"]["day"].asDouble!;
-                println(temperature)
                 var date:Double = day["dt"].asDouble!;
                 
                 _chartLegend.append(dateFormatter.stringFromDate(NSDate(timeIntervalSince1970: date)))
@@ -62,8 +59,7 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
 
         }
         
-  //          println(json["REMOTE_ADDR"].asString)
-
+ 
         
         
     }
@@ -73,6 +69,29 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
         
         super.view.backgroundColor = uicolorFromHex(0x2c2c2c);
         
+        _barChartView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        _informationView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.view.addSubview(_barChartView);
+        self.view.addSubview(_informationView);
+        
+        //--------------- constraints
+        
+        //make dictionary for views
+        let viewsDictionary = ["view1":_barChartView,"view2":_informationView]
+        
+        //position constraints
+        let view_constraint_H:NSArray = NSLayoutConstraint.constraintsWithVisualFormat("H:|-10-[view1]-10-|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDictionary)
+        let view_constraint_H2:NSArray = NSLayoutConstraint.constraintsWithVisualFormat("H:|-10-[view2]-10-|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDictionary)
+        let view_constraint_V:NSArray = NSLayoutConstraint.constraintsWithVisualFormat("V:|-20-[view1(view2)]-[view2]-10-|", options: NSLayoutFormatOptions.AlignAllLeading, metrics: nil, views: viewsDictionary)
+        
+        view.addConstraints(view_constraint_H)
+        view.addConstraints(view_constraint_H2)
+        view.addConstraints(view_constraint_V)
+
+        // Forces to compute the layout size, so JBChartView library does not complain that the footer and headers are bigger than the chart itself.
+        view.setNeedsLayout()
+        view.layoutIfNeeded();
+
         _barChartView.dataSource = self;
         _barChartView.delegate = self;
         
@@ -82,7 +101,7 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
         
         // Body
         _barChartView.backgroundColor = uicolorFromHex(0x3c3c3c);
-        _barChartView.frame = CGRectMake(_padding, 80, self.view.bounds.width - _padding * 2, self.view.bounds.height / 2);
+    //    _barChartView.frame = CGRectMake(_padding, 80, self.view.bounds.width - _padding * 2, self.view.bounds.height / 2);
         _barChartView.minimumValue = 0;
         
         // Header
@@ -99,7 +118,7 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
         _barChartView.footerView = _footerView;
         
         // Information View
-        _informationView.frame = CGRectMake(self.view.bounds.origin.x, CGRectGetMaxY(_barChartView.frame), self.view.bounds.width, self.view.bounds.size.height - CGRectGetMaxY(_barChartView.frame));
+     //   _informationView.frame = CGRectMake(self.view.bounds.origin.x, CGRectGetMaxY(_barChartView.frame), self.view.bounds.width, self.view.bounds.size.height - CGRectGetMaxY(_barChartView.frame));
         
         // Tooltip
         _tooltipView.alpha = 0.0;
@@ -108,12 +127,6 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
         _barChartView.addSubview(_tooltipTipView);
         
         downloadData()
-        //
-        //        _barChartView.reloadData();
-        
-        self.view.addSubview(_barChartView);
-        self.view.addSubview(_informationView);
-        println("Launched");
     }
     
     override func didReceiveMemoryWarning() {
@@ -123,13 +136,11 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
     
     /* Returns the numbers of BARs */
     func numberOfBarsInBarChartView(barChartView: JBBarChartView!) -> UInt {
-        println("numberOfBarsInBarChartView");
         return UInt(_chartData.count);
     }
     
     /* Returns the value @ index */
     func barChartView(barChartView: JBBarChartView, heightForBarViewAtIndex index: UInt) -> CGFloat {
-        println("barChartView", index);
         return CGFloat(_chartData[Int(index)]);
     }
     
@@ -177,7 +188,6 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
         _tooltipTipView.frame = CGRectMake(originalTouchPoint.x - ceil(_tooltipTipView.frame.size.width * 0.5), CGRectGetMaxY(_tooltipView.frame), _tooltipTipView.frame.size.width, _tooltipTipView.frame.size.height);
         _tooltipView.alpha = 1.0;
         _tooltipTipView.alpha = 1.0;
-        println("didSelectBar", index);
     }
     
     /* Called when user stop selecting a bar */
@@ -202,7 +212,15 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
         
         return UIColor(red:red, green:green, blue:blue, alpha:1.0)
     }
-
+    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+        _barChartView.setState(JBChartViewState.Collapsed, animated: true)
+        
+    }
+    
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        _barChartView.reloadData()
+        _barChartView.setState(JBChartViewState.Expanded, animated: true)
+    }
     
 }
 
