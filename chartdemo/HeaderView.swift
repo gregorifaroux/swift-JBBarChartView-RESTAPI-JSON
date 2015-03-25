@@ -8,7 +8,7 @@
 import Foundation
 
 class HeaderView : UIView {
-    let _fontTitle = UIFont(name:"HelveticaNeue-Bold", size:24.0)
+    let _fontTitle = UIFont(name:"HelveticaNeue-Bold", size:14.0)
     let _fontSubtitle = UIFont(name:"HelveticaNeue-Light", size:14.0)
     let _viewSeparatorHeight = CGFloat(0.5)
     
@@ -18,11 +18,6 @@ class HeaderView : UIView {
     var titleLabel = UILabel()
     var subtitleLabel = UILabel()
     var separatorColor = UIColor.whiteColor()
-    
-    override convenience init() {
-        self.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-    }
-
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -65,17 +60,20 @@ class HeaderView : UIView {
     }
     
     override func layoutSubviews() {
-        let xOffset = self.padding
-        var yOffset:CGFloat = 0
-        let titleHeight = ceil(self.bounds.size.height * 0.5)
-        let subTitleHeight = self.bounds.size.height - titleHeight - _viewSeparatorHeight
         
-        self.titleLabel.frame = CGRectMake(xOffset, yOffset, self.bounds.size.width - (xOffset * 2), titleHeight)
-        yOffset += self.titleLabel.frame.size.height
-        self._separatorView.frame = CGRectMake(xOffset * 2, yOffset, self.bounds.size.width - (xOffset * 4), _viewSeparatorHeight)
-        yOffset += self._separatorView.frame.size.height
-        self.subtitleLabel.frame = CGRectMake(xOffset, yOffset, self.bounds.size.width - (xOffset * 2), subTitleHeight)
-
+        let orientation = UIDevice.currentDevice().orientation
+        var newFrame = self.frame
+        
+        let titleHeight = ceil(self.bounds.size.height * 0.5);
+        let subTitleHeight = self.bounds.size.height - titleHeight - _viewSeparatorHeight;
+        let xOffset = self.padding;
+        var yOffset:CGFloat = 0;
+        
+        self.titleLabel.frame = CGRectMake(xOffset, yOffset, self.bounds.size.width - (xOffset * 2), titleHeight);
+        yOffset += self.titleLabel.frame.size.height;
+        self._separatorView.frame = CGRectMake(xOffset * 2, yOffset, self.bounds.size.width - (xOffset * 4), _viewSeparatorHeight);
+        yOffset += self._separatorView.frame.size.height;
+        self.subtitleLabel.frame = CGRectMake(xOffset, yOffset, self.bounds.size.width - (xOffset * 2), subTitleHeight);
     }
     
     /*

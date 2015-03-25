@@ -1,6 +1,5 @@
 //
 //  ViewController.swift
-//  ResearchDashboard
 //
 //  Created by Gregori Faroux on 10/30/14.
 //  Copyright (c) 2014 Gregori Faroux. All rights reserved.
@@ -12,26 +11,27 @@ import UIKit
 class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDataSource {
     
     let _headerHeight:CGFloat = 80
-    let _footerHeight:CGFloat = 25
+    let _footerHeight:CGFloat = 40
     let _padding:CGFloat = 10
     
     let _barChartView = JBBarChartView()
-    let _headerView = HeaderView()
+    let _headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     let _informationView = ChartInformationView()
     let _tooltipView = TooltipView()
     let _tooltipTipView = TooltipTipView()
     let _footerView = FooterView()
-
+    
     
     var _chartData: [Float] = []
     var _chartLegend: [String] = []
     
     var _view_constraint_V:NSArray = [NSLayoutConstraint]()
-    var _view_constraint_V_constant:CGFloat = 0.0
+    let _view_height_portrait:CGFloat = 400.0
+    let _view_height_landscape:CGFloat = 180.0
     
     func buttonRefresh(sender: AnyObject) {
         _barChartView.setState(JBChartViewState.Collapsed, animated: true)
-        _headerView.subtitleLabel.text = "Loading..."
+        _headerView.titleLabel.text = "Loading..."
         _chartData = []
         _chartLegend = []
         downloadData()
@@ -42,10 +42,10 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
         var results = []
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MM-dd"
-
+        
         let json = JSON(url:"http://api.openweathermap.org/data/2.5/forecast/daily?q=atlanta&mode=json&units=metric&cnt=5")
         if let days = json["list"].asArray {
-            var i:Int = 0 
+            var i:Int = 0
             for day in days {
                 var temperature:Double = day["temp"]["day"].asDouble!
                 var date:Double = day["dt"].asDouble!
@@ -55,14 +55,14 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
             }
             _footerView.leftLabel.text = _chartLegend[0]
             _footerView.rightLabel.text = _chartLegend[_chartLegend.count - 1 ]
-            _headerView.subtitleLabel.text = json["city"]["name"].asString
-
+            _headerView.titleLabel.text = json["city"]["name"].asString
+            
             _barChartView.reloadData()
             _barChartView.setState(JBChartViewState.Expanded, animated: true)
-
+            
         }
         
- 
+        
         
         
     }
@@ -84,16 +84,16 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
         //position constraints
         let view_constraint_H:NSArray = NSLayoutConstraint.constraintsWithVisualFormat("H:|-10-[view1]-10-|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDictionary)
         let view_constraint_H2:NSArray = NSLayoutConstraint.constraintsWithVisualFormat("H:|-10-[view2]-10-|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDictionary)
-        _view_constraint_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-20-[view1(view2)]-[view2]-0-|", options: NSLayoutFormatOptions.AlignAllLeading, metrics: nil, views: viewsDictionary)
+        _view_constraint_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[view1(height)]-[view2]-0-|", options: NSLayoutFormatOptions.AlignAllLeading, metrics: ["height": _view_height_portrait], views: viewsDictionary)
         
         view.addConstraints(view_constraint_H)
         view.addConstraints(view_constraint_H2)
         view.addConstraints(_view_constraint_V)
-
+        
         // Forces to compute the layout size, so JBChartView library does not complain that the footer and headers are bigger than the chart itself.
         view.setNeedsLayout()
         view.layoutIfNeeded()
-
+        
         _barChartView.dataSource = self
         _barChartView.delegate = self
         
@@ -103,13 +103,13 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
         
         // Body
         _barChartView.backgroundColor = uicolorFromHex(0x3c3c3c)
-    //    _barChartView.frame = CGRectMake(_padding, 80, self.view.bounds.width - _padding * 2, self.view.bounds.height / 2)
+        //    _barChartView.frame = CGRectMake(_padding, 80, self.view.bounds.width - _padding * 2, self.view.bounds.height / 2)
         _barChartView.minimumValue = 0
         
         // Header
         _headerView.frame = CGRectMake(_padding,ceil(self.view.bounds.size.height * 0.5) - ceil(_headerHeight * 0.5),self.view.bounds.width - _padding*2, _headerHeight)
-        _headerView.titleLabel.text = "Forecast"
-        _headerView.subtitleLabel.text = "Loading..."
+        _headerView.titleLabel.text = "Loading..."
+        _headerView.subtitleLabel.text = "Weather Forecast"
         _barChartView.headerView = _headerView
         
         // Footer
@@ -120,7 +120,7 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
         _barChartView.footerView = _footerView
         
         // Information View
-     //   _informationView.frame = CGRectMake(self.view.bounds.origin.x, CGRectGetMaxY(_barChartView.frame), self.view.bounds.width, self.view.bounds.size.height - CGRectGetMaxY(_barChartView.frame))
+        //   _informationView.frame = CGRectMake(self.view.bounds.origin.x, CGRectGetMaxY(_barChartView.frame), self.view.bounds.width, self.view.bounds.size.height - CGRectGetMaxY(_barChartView.frame))
         
         // Tooltip
         _tooltipView.alpha = 0.0
@@ -173,7 +173,7 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
             CGRectGetMaxY(_headerView.frame),
             _tooltipView.frame.size.width,
             _tooltipView.frame.size.height)
-            _tooltipView.setText(_chartLegend[Int(index)])
+        _tooltipView.setText(_chartLegend[Int(index)])
         
         
         var originalTouchPoint:CGPoint = touchPoint
@@ -226,12 +226,11 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
         if (UIDevice.currentDevice().orientation.isLandscape) {
             println("Landscape")
             _headerView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-            _view_constraint_V_constant = (self._view_constraint_V[1] as NSLayoutConstraint).constant
-            (self._view_constraint_V[1] as NSLayoutConstraint).constant = 20
+            (self._view_constraint_V[1] as NSLayoutConstraint).constant = _view_height_landscape
         } else {
             println("Portrait")
             _headerView.frame = CGRectMake(_padding,ceil(self.view.bounds.size.height * 0.5) - ceil(_headerHeight * 0.5),self.view.bounds.width - _padding*2, _headerHeight)
-            (self._view_constraint_V[1] as NSLayoutConstraint).constant = _view_constraint_V_constant
+            (self._view_constraint_V[1] as NSLayoutConstraint).constant = _view_height_portrait
         }
         // Refresh the graph once the transition is completed
         coordinator.animateAlongsideTransition(nil, completion: {
