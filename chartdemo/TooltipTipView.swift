@@ -9,8 +9,8 @@
 import Foundation
 
 class TooltipTipView : UIView {
-    let _defaultWidth:CGFloat = 8;
-    let _defaultHeight:CGFloat = 5;
+    let _defaultWidth:CGFloat = 8
+    let _defaultHeight:CGFloat = 5
     
     let _tooltipColor = UIColor.whiteColor().colorWithAlphaComponent(0.9).CGColor
     
@@ -31,19 +31,19 @@ class TooltipTipView : UIView {
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         
-        let context:CGContextRef = UIGraphicsGetCurrentContext();
-        UIColor.clearColor().set();
+        let context:CGContextRef = UIGraphicsGetCurrentContext()
+        UIColor.clearColor().set()
         CGContextFillRect(context, rect)
         
-        CGContextSaveGState(context);
-            CGContextBeginPath(context);
-            CGContextMoveToPoint(context, CGRectGetMidX(rect), CGRectGetMaxY(rect));
-            CGContextAddLineToPoint(context, CGRectGetMinX(rect), CGRectGetMinY(rect));
-            CGContextAddLineToPoint(context, CGRectGetMaxX(rect), CGRectGetMinY(rect));
-            CGContextClosePath(context);
-            CGContextSetFillColorWithColor(context, _tooltipColor);
-            CGContextFillPath(context);
-        CGContextRestoreGState(context);
+        CGContextSaveGState(context)
+            CGContextBeginPath(context)
+            CGContextMoveToPoint(context, CGRectGetMidX(rect), CGRectGetMaxY(rect))
+            CGContextAddLineToPoint(context, CGRectGetMinX(rect), CGRectGetMinY(rect))
+            CGContextAddLineToPoint(context, CGRectGetMaxX(rect), CGRectGetMinY(rect))
+            CGContextClosePath(context)
+            CGContextSetFillColorWithColor(context, _tooltipColor)
+            CGContextFillPath(context)
+        CGContextRestoreGState(context)
     }
 
     

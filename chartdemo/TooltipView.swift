@@ -9,8 +9,8 @@
 import Foundation
 
 class TooltipView : UIView {
-    let _defaultWidth:CGFloat = 50;
-    let _defaultHeight:CGFloat = 25;
+    let _defaultWidth:CGFloat = 50
+    let _defaultHeight:CGFloat = 25
     
     let _tooltipColor = UIColor.whiteColor().colorWithAlphaComponent(0.9)
     let _textLabel = UILabel()
@@ -23,32 +23,32 @@ class TooltipView : UIView {
     
     override init(frame: CGRect) {
         super.init(frame: CGRect(x: 0, y: 0, width: _defaultWidth, height: _defaultHeight))
-        self.backgroundColor = _tooltipColor;
-        self.layer.cornerRadius = 5.0;
+        self.backgroundColor = _tooltipColor
+        self.layer.cornerRadius = 5.0
         
-        _textLabel.font = _font;
+        _textLabel.font = _font
         _textLabel.backgroundColor = UIColor.clearColor()
-        _textLabel.textColor = uicolorFromHex(0x313131);
-        _textLabel.adjustsFontSizeToFitWidth = true;
-        _textLabel.numberOfLines = 1;
-        _textLabel.textAlignment = NSTextAlignment.Center;
+        _textLabel.textColor = uicolorFromHex(0x313131)
+        _textLabel.adjustsFontSizeToFitWidth = true
+        _textLabel.numberOfLines = 1
+        _textLabel.textAlignment = NSTextAlignment.Center
         self.addSubview(_textLabel)
         
         
     }
     
     func setText(text:String) {
-        self._textLabel.text = text;
-        self.setNeedsLayout();
+        self._textLabel.text = text
+        self.setNeedsLayout()
     }
     
     func setTooltipColor(tooltipColor:UIColor) {
-        self.backgroundColor = tooltipColor;
-        self.setNeedsLayout();
+        self.backgroundColor = tooltipColor
+        self.setNeedsLayout()
     }
     
     override func layoutSubviews() {
-        super.layoutSubviews();
+        super.layoutSubviews()
         _textLabel.frame = self.bounds
     }
     
