@@ -16,7 +16,7 @@ class TooltipView : UIView {
     let _textLabel = UILabel()
     let _font = UIFont(name:"HelveticaNeue-Bold", size:14.0)
     
-    override convenience init() {
+     convenience init() {
         self.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     }
 

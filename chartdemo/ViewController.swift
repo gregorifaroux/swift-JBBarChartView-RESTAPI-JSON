@@ -24,6 +24,7 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
     
     var _chartData: [Float] = []
     var _chartLegend: [String] = []
+    var _chartBar: [BarChartView] = []
     
     var _view_constraint_V:NSArray = [NSLayoutConstraint]()
     let _view_height_portrait:CGFloat = 400.0
@@ -34,6 +35,7 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
         _headerView.titleLabel.text = "Loading..."
         _chartData = []
         _chartLegend = []
+        _chartBar = []
         downloadData()
     }
     
@@ -52,10 +54,11 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
                 
                 _chartLegend.append(dateFormatter.stringFromDate(NSDate(timeIntervalSince1970: date)))
                 _chartData.append(Float(temperature))
+                _chartBar.append(BarChartView(frame: CGRectZero, footer: _footerView))
             }
-            _footerView.leftLabel.text = _chartLegend[0]
+/*            _footerView.leftLabel.text = _chartLegend[0]
             _footerView.rightLabel.text = _chartLegend[_chartLegend.count - 1 ]
-            _headerView.titleLabel.text = json["city"]["name"].asString
+*/            _headerView.titleLabel.text = json["city"]["name"].asString
             
             _barChartView.reloadData()
             _barChartView.setState(JBChartViewState.Expanded, animated: true)
@@ -86,9 +89,9 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
         let view_constraint_H2:NSArray = NSLayoutConstraint.constraintsWithVisualFormat("H:|-10-[view2]-10-|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDictionary)
         _view_constraint_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[view1(height)]-[view2]-0-|", options: NSLayoutFormatOptions.AlignAllLeading, metrics: ["height": _view_height_portrait], views: viewsDictionary)
         
-        view.addConstraints(view_constraint_H)
-        view.addConstraints(view_constraint_H2)
-        view.addConstraints(_view_constraint_V)
+        view.addConstraints(view_constraint_H as! [NSLayoutConstraint])
+        view.addConstraints(view_constraint_H2 as! [NSLayoutConstraint])
+        view.addConstraints(_view_constraint_V as! [NSLayoutConstraint])
         
         // Forces to compute the layout size, so JBChartView library does not complain that the footer and headers are bigger than the chart itself.
         view.setNeedsLayout()
@@ -144,6 +147,17 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
     /* Returns the value @ index */
     func barChartView(barChartView: JBBarChartView, heightForBarViewAtIndex index: UInt) -> CGFloat {
         return CGFloat(_chartData[Int(index)])
+    }
+    
+    func barChartView(barChartView: JBBarChartView!, barViewAtIndex index: UInt) -> UIView! {
+        println("BAR CHART VIEW FOOTER")
+        var barView = _chartBar[Int(index)]
+        //        var DynamicView=UIView(frame: CGRectZero)
+        barView.backgroundColor = (Int(index) % 2 == 0 ) ? uicolorFromHex(0x34b234) : uicolorFromHex(0x08bcef)
+        barView.legendLabel.text = _chartLegend[Int(index)]
+//        DynamicView.layer.cornerRadius=25
+ //       DynamicView.layer.borderWidth=2
+        return barView
     }
     
     /* Bar color @ index */
@@ -226,11 +240,11 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
         if (UIDevice.currentDevice().orientation.isLandscape) {
             println("Landscape")
             _headerView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-            (self._view_constraint_V[1] as NSLayoutConstraint).constant = _view_height_landscape
+            (self._view_constraint_V[1] as! NSLayoutConstraint).constant = _view_height_landscape
         } else {
             println("Portrait")
             _headerView.frame = CGRectMake(_padding,ceil(self.view.bounds.size.height * 0.5) - ceil(_headerHeight * 0.5),self.view.bounds.width - _padding*2, _headerHeight)
-            (self._view_constraint_V[1] as NSLayoutConstraint).constant = _view_height_portrait
+            (self._view_constraint_V[1] as! NSLayoutConstraint).constant = _view_height_portrait
         }
         // Refresh the graph once the transition is completed
         coordinator.animateAlongsideTransition(nil, completion: {

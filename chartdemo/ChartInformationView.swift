@@ -30,7 +30,7 @@ class ChartInformationView: UIView {
     }
 
     
-    override convenience init() {
+    convenience init() {
         self.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     }
     
@@ -90,14 +90,8 @@ class ChartInformationView: UIView {
         return separatorRect
     }
     
-    
-    func setTitleText(titleText: NSString?) {
-        self._titleLabel.text = titleText
-        self._separatorView.hidden = !(titleText != nil)
-    }
-    
     func setValueText(valueText: NSString) {
-        self._valueView._valueLabel.text = valueText
+        self._valueView._valueLabel.text = valueText as String
         self._valueView.setNeedsLayout()
     }
     
@@ -157,10 +151,6 @@ class ChartInformationView: UIView {
         }
     }
     
-    func setHidden(hidden: Bool) {
-        self.setHidden(hidden, animated: false)
-    }
-
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
