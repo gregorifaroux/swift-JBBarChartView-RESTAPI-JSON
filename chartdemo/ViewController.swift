@@ -149,14 +149,12 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
         return CGFloat(_chartData[Int(index)])
     }
     
+    /* Returns bar @ index */ 
     func barChartView(barChartView: JBBarChartView!, barViewAtIndex index: UInt) -> UIView! {
-        println("BAR CHART VIEW FOOTER")
         var barView = _chartBar[Int(index)]
-        //        var DynamicView=UIView(frame: CGRectZero)
         barView.backgroundColor = (Int(index) % 2 == 0 ) ? uicolorFromHex(0x34b234) : uicolorFromHex(0x08bcef)
         barView.legendLabel.text = _chartLegend[Int(index)]
-//        DynamicView.layer.cornerRadius=25
- //       DynamicView.layer.borderWidth=2
+
         return barView
     }
     
