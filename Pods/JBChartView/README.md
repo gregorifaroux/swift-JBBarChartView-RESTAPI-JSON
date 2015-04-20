@@ -38,12 +38,8 @@ Build and run the <i>JBChartViewDemo</i> project in Xcode. The demo demonstrates
 
 Simply add the following line to your <code>Podfile</code>:
 
-	pod 'JBChartView'
-	
-Your Podfile should look something like:
-
 	platform :ios, '6.0'
-	pod 'JBChartView', '~> 2.8.9'
+	pod 'JBChartView'
 	
 ### The Old School Way
 
@@ -62,9 +58,9 @@ All JBChartView implementations have a similiar data source and delgate pattern 
 To use JBCartView in a Swift project add the following to your bridging header (JBChartView-Bridging-Header.h):
 
 	#import <UIKit/UIKit.h>
-	#import "JBChartView/JBChartView.h"
-	#import "JBChartView/JBBarChartView.h"
-	#import "JBChartView/JBLineChartView.h"
+	#import "JBChartView.h"
+	#import "JBBarChartView.h"
+	#import "JBLineChartView.h"
 
 For more information about adding bridging headers see <a href="https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html" target="_blank">Swift and Objective-C in the Same Project</a>.
 
@@ -86,7 +82,7 @@ At a minimum, you need to inform the data source how many bars are in the chart:
 
 Secondly, you need to inform the delegate the height of each bar (automatically normalized across the entire chart):
     
-    - (CGFloat)barChartView:(JBBarChartView *)barChartView heightForBarViewAtAtIndex:(NSUInteger)index
+    - (CGFloat)barChartView:(JBBarChartView *)barChartView heightForBarViewAtIndex:(NSUInteger)index
     {
 		return ...; // height of bar at index
 	}
@@ -125,6 +121,10 @@ Secondly, you need to inform the delegate of the y-position of each point (autom
     {
 		return ...; // y-position (y-axis) of point at horizontalIndex (x-axis)
 	}
+
+**Note**: You can return NAN instead of CGFloat to indicate missing values. The chart's line will begin at the first non-NAN value and end at the last non-NAN value. The line will interopolate any NAN values in between (ie. the line will not be interrupted).
+
+	return [[NSNumber numberWithFloat:NAN] floatValue];
 
 Lastly, ensure you have set the *frame* of your lineChartView & call *reloadData* at least once:
 
@@ -239,7 +239,7 @@ By default, each line will not show dots for each point. To enable this on a per
 
 	- (BOOL)lineChartView:(JBLineChartView *)lineChartView showsDotsForLineAtLineIndex:(NSUInteger)lineIndex;
 
-To customize the size of each dot (default 3x the line width), implement:
+To the radius of each dot (default is 6x the line width, or 3x the diameter), implement:
 
 	- (CGFloat)lineChartView:(JBLineChartView *)lineChartView dotRadiusForDotAtHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex;
 	

@@ -22,7 +22,7 @@ class HeaderView : UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = uicolorFromHex(0x313131)
+        self.backgroundColor = UIColor.clearColor()
         
         titleLabel.numberOfLines = 1
         titleLabel.adjustsFontSizeToFitWidth = true

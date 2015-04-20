@@ -54,7 +54,7 @@ typedef NS_ENUM(NSInteger, JBLineChartViewLineStyle){
  *  Dot size is relative to the line width and not adjustable.
  *  Dot color is equal to the line color and not adjustable.
  *
- *  Default: NO
+ *  Default: NO.
  *
  *  @param lineChartView    The line chart object requesting this information.
  *  @param lineIndex        An index number identifying a line in the chart.
@@ -66,7 +66,7 @@ typedef NS_ENUM(NSInteger, JBLineChartViewLineStyle){
 /**
  *  Returns whether or not a line should be rendered with curved connections and rounded end caps.
  *
- *  Default: NO
+ *  Default: NO.
  *
  *  @param lineChartView    The line chart object requesting this information.
  *  @param lineIndex        An index number identifying a line in the chart.
@@ -96,7 +96,7 @@ typedef NS_ENUM(NSInteger, JBLineChartViewLineStyle){
 /**
  *  Returns whether or not a (custom) dot view should be hidden on selection events. 
  *
- *  Default: NO
+ *  Default: NO.
  *
  *  @param lineChartView    The line chart object requesting this information.
  *  @param horizontalIndex  The 0-based horizontal index of a selection point (left to right, x-axis).
@@ -115,6 +115,8 @@ typedef NS_ENUM(NSInteger, JBLineChartViewLineStyle){
 /**
  *  Vertical value for a line point at a given index (left to right). There is no ceiling on the the height;
  *  the chart will automatically normalize all values between the overal min and max heights.
+ *  NAN may able be retuend to indicate missing values. The chart's line will begin at the first non-NAN value and end at the last non-NAN value. 
+ *  Furthermore, the line will interopolate any NAN values in between (ie. the line will not be interrupted).
  *
  *  @param lineChartView    The line chart object requesting this information.
  *  @param horizontalIndex  The 0-based horizontal index of a selection point (left to right, x-axis).
@@ -204,7 +206,7 @@ typedef NS_ENUM(NSInteger, JBLineChartViewLineStyle){
  *  For this value to apply, showsDotsForLineAtLineIndex: must return YES for the line at lineIndex.
  *  Any value can be returned for lineIndex's that don't support dots, as it will never be called.
  *
- *  Default: line width x 3.
+ *  Default: line width x 6.
  *
  *  @param lineChartView    The line chart object requesting this information.
  *  @param horizontalIndex  The 0-based horizontal index of a selection point (left to right, x-axis).
@@ -283,7 +285,7 @@ typedef NS_ENUM(NSInteger, JBLineChartViewLineStyle){
  *  Returns the line style of a particular line at lineIndex within the chart.
  *  See JBLineChartViewLineStyle for line style descriptions.
  *
- *  Default: JBLineChartViewLineStyleSolid
+ *  Default: JBLineChartViewLineStyleSolid.
  *
  *  @param lineChartView    The line chart object requesting this information.
  *  @param lineIndex        An index number identifying a line in the chart.
@@ -314,5 +316,17 @@ typedef NS_ENUM(NSInteger, JBLineChartViewLineStyle){
  *  Default: YES.
  */
 @property (nonatomic, assign) BOOL showsLineSelection;
+
+/**
+ *  The dot view within a particular line at a horizontalIndex. 
+ *
+ *  Default: nil.
+ *
+ *  @param horizontalIndex  The 0-based horizontal index of a selection point (left to right, x-axis)
+ *  @param lineIndex        An index number identifying a line in the chart.
+ *
+ *  @return The UIView representing the dot view at a given horizontalIndex within a line or nil if any index is out of range.
+ */
+- (UIView *)dotViewAtHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex;
 
 @end

@@ -1,0 +1,44 @@
+//
+
+import UIKit
+
+public class ENSideMenuNavigationController: UINavigationController, ENSideMenuProtocol {
+    
+    public var sideMenu : ENSideMenu?
+
+    
+    
+    // MARK: - Life cycle
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    public init( menuTableViewController: UITableViewController, contentViewController: UIViewController?) {
+        super.init(nibName: nil, bundle: nil)
+        
+        if (contentViewController != nil) {
+            self.viewControllers = [contentViewController!]
+        }
+        
+        sideMenu = ENSideMenu(sourceView: self.view, offsetY: self.navigationBar.frame.height + UIApplication.sharedApplication().statusBarFrame.size.height, menuTableViewController: menuTableViewController)
+        view.bringSubviewToFront(navigationBar)
+    }
+    
+    required public init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    public override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Navigation
+    public func setContentViewController(contentViewController: UIViewController) {
+        self.sideMenu?.toggleMenu()
+        contentViewController.navigationItem.hidesBackButton = true
+        self.setViewControllers([contentViewController], animated: true)
+
+    }
+    
+}

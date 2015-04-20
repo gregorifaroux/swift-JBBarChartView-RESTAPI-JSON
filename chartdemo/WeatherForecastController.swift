@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  WeatherForecastController.swift
 //
 //  Created by Gregori Faroux on 10/30/14.
 //  Copyright (c) 2014 Gregori Faroux. All rights reserved.
@@ -8,7 +8,7 @@
 import UIKit
 
 
-class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDataSource {
+class WeatherForecastController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDataSource, ENSideMenuDelegate {
     
     let _headerHeight:CGFloat = 80
     let _footerHeight:CGFloat = 40
@@ -56,23 +56,24 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
                 _chartData.append(Float(temperature))
                 _chartBar.append(BarChartView(frame: CGRectZero, footer: _footerView))
             }
-/*            _footerView.leftLabel.text = _chartLegend[0]
-            _footerView.rightLabel.text = _chartLegend[_chartLegend.count - 1 ]
-*/            _headerView.titleLabel.text = json["city"]["name"].asString
+            _headerView.titleLabel.text = json["city"]["name"].asString
             
             _barChartView.reloadData()
             _barChartView.setState(JBChartViewState.Expanded, animated: true)
             
         }
-        
-        
-        
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = uicolorFromHex(0x2c2c2c)
+        
+        // Menu
+        self.sideMenuController()?.sideMenu?.delegate = self
+        var homeButton : UIBarButtonItem = UIBarButtonItem(title: "Menu", style: UIBarButtonItemStyle.Plain, target: self, action: "showMenu")
+        self.navigationItem.leftBarButtonItem = homeButton
+
+        //
+        self.view.backgroundColor = UIColor.clearColor()
         
         _barChartView.setTranslatesAutoresizingMaskIntoConstraints(false)
         _informationView.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -232,7 +233,7 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
     }
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        println("viewWillTransitionToSize")
+
         _barChartView.setState(JBChartViewState.Collapsed, animated: true)
         
         if (UIDevice.currentDevice().orientation.isLandscape) {
@@ -251,7 +252,15 @@ class ViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDa
         })
     }
     
+    func showMenu() {
+        toggleSideMenuView()
+    }
     
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        return true
+    }
+
+
     
 }
 

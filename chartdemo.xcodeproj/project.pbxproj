@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		23C8FB611AE0000900DD481A /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8FB601AE0000900DD481A /* BarChartView.swift */; };
 		B53BD83846F1CB5D70072FCA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B6A3935C211BFE79549499B /* libPods.a */; };
+		F72586BD1AE4863100B2BDD9 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72586BC1AE4863100B2BDD9 /* DotView.swift */; };
 		F7489B961A032EFB00C122A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7489B951A032EFB00C122A8 /* AppDelegate.swift */; };
-		F7489B981A032EFB00C122A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7489B971A032EFB00C122A8 /* ViewController.swift */; };
+		F7489B981A032EFB00C122A8 /* WeatherForecastController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7489B971A032EFB00C122A8 /* WeatherForecastController.swift */; };
 		F7489B9B1A032EFB00C122A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7489B991A032EFB00C122A8 /* Main.storyboard */; };
 		F7489B9D1A032EFB00C122A8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7489B9C1A032EFB00C122A8 /* Images.xcassets */; };
 		F7489BA01A032EFB00C122A8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7489B9E1A032EFB00C122A8 /* LaunchScreen.xib */; };
@@ -22,6 +23,11 @@
 		F7F4AA8B1A05C8FB006B5680 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4AA891A05C8FB006B5680 /* HeaderView.swift */; };
 		F7F4AA8D1A05DBA1006B5680 /* TooltipTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4AA8C1A05DBA1006B5680 /* TooltipTipView.swift */; };
 		F7F4AA8F1A05DF8C006B5680 /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4AA8E1A05DF8C006B5680 /* TooltipView.swift */; };
+		F7F9C5AC1AE17B700078F2E5 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F9C5A81AE17B700078F2E5 /* ENSideMenu.swift */; };
+		F7F9C5AD1AE17B700078F2E5 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F9C5A91AE17B700078F2E5 /* ENSideMenuNavigationController.swift */; };
+		F7F9C5AE1AE17B700078F2E5 /* MyMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F9C5AA1AE17B700078F2E5 /* MyMenuTableViewController.swift */; };
+		F7F9C5AF1AE17B700078F2E5 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F9C5AB1AE17B700078F2E5 /* MyNavigationController.swift */; };
+		F7F9C5B11AE17B8D0078F2E5 /* PrecipitationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F9C5B01AE17B8D0078F2E5 /* PrecipitationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,10 +45,11 @@
 		492CBB8BECE3AE6F54D15C00 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9B6A3935C211BFE79549499B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5924B4368EDEBEE86AE0ADD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F72586BC1AE4863100B2BDD9 /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
 		F7489B901A032EFB00C122A8 /* chartdemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chartdemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7489B941A032EFB00C122A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7489B951A032EFB00C122A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F7489B971A032EFB00C122A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F7489B971A032EFB00C122A8 /* WeatherForecastController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastController.swift; sourceTree = "<group>"; };
 		F7489B9A1A032EFB00C122A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7489B9C1A032EFB00C122A8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F7489B9F1A032EFB00C122A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -57,6 +64,11 @@
 		F7F4AA891A05C8FB006B5680 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		F7F4AA8C1A05DBA1006B5680 /* TooltipTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TooltipTipView.swift; sourceTree = "<group>"; };
 		F7F4AA8E1A05DF8C006B5680 /* TooltipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
+		F7F9C5A81AE17B700078F2E5 /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
+		F7F9C5A91AE17B700078F2E5 /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
+		F7F9C5AA1AE17B700078F2E5 /* MyMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMenuTableViewController.swift; sourceTree = "<group>"; };
+		F7F9C5AB1AE17B700078F2E5 /* MyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
+		F7F9C5B01AE17B8D0078F2E5 /* PrecipitationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrecipitationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,21 +130,16 @@
 		F7489B921A032EFB00C122A8 /* chartdemo */ = {
 			isa = PBXGroup;
 			children = (
-				F7489BB51A0332C900C122A8 /* BChartView-Bridging-Header.h */,
+				F7F9C5B21AE1857E0078F2E5 /* LineChart */,
+				F7F9C5A51AE17A7F0078F2E5 /* Menu */,
 				F7489B951A032EFB00C122A8 /* AppDelegate.swift */,
-				F75484DD1A06610100F18809 /* ChartInformationValueView.swift */,
-				F75484D91A06589300F18809 /* ChartInformationView.swift */,
-				F7F4AA881A05C8FB006B5680 /* FooterView.swift */,
-				F7F4AA891A05C8FB006B5680 /* HeaderView.swift */,
-				F7489BBC1A03362B00C122A8 /* json.swift */,
-				F7F4AA8C1A05DBA1006B5680 /* TooltipTipView.swift */,
-				F7F4AA8E1A05DF8C006B5680 /* TooltipView.swift */,
-				F7489B971A032EFB00C122A8 /* ViewController.swift */,
+				F7F9C5A31AE178B80078F2E5 /* BarChart */,
+				F7F9C5A21AE1789F0078F2E5 /* Controller */,
 				F7489B9C1A032EFB00C122A8 /* Images.xcassets */,
 				F7489B9E1A032EFB00C122A8 /* LaunchScreen.xib */,
+				F7F9C5A41AE17A160078F2E5 /* Lib */,
 				F7489B991A032EFB00C122A8 /* Main.storyboard */,
 				F7489B931A032EFB00C122A8 /* Supporting Files */,
-				23C8FB601AE0000900DD481A /* BarChartView.swift */,
 			);
 			path = chartdemo;
 			sourceTree = "<group>";
@@ -160,6 +167,57 @@
 				F7489BAA1A032EFB00C122A8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F7F9C5A21AE1789F0078F2E5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F7489B971A032EFB00C122A8 /* WeatherForecastController.swift */,
+				F7F9C5B01AE17B8D0078F2E5 /* PrecipitationController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F7F9C5A31AE178B80078F2E5 /* BarChart */ = {
+			isa = PBXGroup;
+			children = (
+				23C8FB601AE0000900DD481A /* BarChartView.swift */,
+				F75484DD1A06610100F18809 /* ChartInformationValueView.swift */,
+				F75484D91A06589300F18809 /* ChartInformationView.swift */,
+				F7F4AA881A05C8FB006B5680 /* FooterView.swift */,
+				F7F4AA891A05C8FB006B5680 /* HeaderView.swift */,
+				F7F4AA8C1A05DBA1006B5680 /* TooltipTipView.swift */,
+				F7F4AA8E1A05DF8C006B5680 /* TooltipView.swift */,
+			);
+			name = BarChart;
+			sourceTree = "<group>";
+		};
+		F7F9C5A41AE17A160078F2E5 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				F7489BB51A0332C900C122A8 /* BChartView-Bridging-Header.h */,
+				F7489BBC1A03362B00C122A8 /* json.swift */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		F7F9C5A51AE17A7F0078F2E5 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				F7F9C5A81AE17B700078F2E5 /* ENSideMenu.swift */,
+				F7F9C5A91AE17B700078F2E5 /* ENSideMenuNavigationController.swift */,
+				F7F9C5AA1AE17B700078F2E5 /* MyMenuTableViewController.swift */,
+				F7F9C5AB1AE17B700078F2E5 /* MyNavigationController.swift */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		F7F9C5B21AE1857E0078F2E5 /* LineChart */ = {
+			isa = PBXGroup;
+			children = (
+				F72586BC1AE4863100B2BDD9 /* DotView.swift */,
+			);
+			name = LineChart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,14 +356,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7F9C5AE1AE17B700078F2E5 /* MyMenuTableViewController.swift in Sources */,
+				F7F9C5AD1AE17B700078F2E5 /* ENSideMenuNavigationController.swift in Sources */,
 				F7F4AA8A1A05C8FB006B5680 /* FooterView.swift in Sources */,
+				F7F9C5B11AE17B8D0078F2E5 /* PrecipitationController.swift in Sources */,
 				F7F4AA8D1A05DBA1006B5680 /* TooltipTipView.swift in Sources */,
 				F7F4AA8B1A05C8FB006B5680 /* HeaderView.swift in Sources */,
+				F72586BD1AE4863100B2BDD9 /* DotView.swift in Sources */,
 				F7489BC61A03362B00C122A8 /* json.swift in Sources */,
+				F7F9C5AC1AE17B700078F2E5 /* ENSideMenu.swift in Sources */,
 				F75484DA1A06589300F18809 /* ChartInformationView.swift in Sources */,
-				F7489B981A032EFB00C122A8 /* ViewController.swift in Sources */,
+				F7489B981A032EFB00C122A8 /* WeatherForecastController.swift in Sources */,
 				F7489B961A032EFB00C122A8 /* AppDelegate.swift in Sources */,
 				23C8FB611AE0000900DD481A /* BarChartView.swift in Sources */,
+				F7F9C5AF1AE17B700078F2E5 /* MyNavigationController.swift in Sources */,
 				F75484DE1A06610100F18809 /* ChartInformationValueView.swift in Sources */,
 				F7F4AA8F1A05DF8C006B5680 /* TooltipView.swift in Sources */,
 			);
