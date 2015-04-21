@@ -259,6 +259,12 @@ class PrecipitationController: UIViewController, ENSideMenuDelegate,  JBLineChar
         coordinator.animateAlongsideTransition(nil, completion: {
             _ in self._lineChartView.reloadData()
             self._lineChartView.setState(JBChartViewState.Expanded, animated: true)
+            // redraw legend
+            for dot: DotView in self._chartBar {
+                dot.setNeedsLayout()
+                dot.layoutIfNeeded()
+                
+            }
         })
     }
 

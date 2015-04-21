@@ -58,7 +58,7 @@ class DotView: UIView {
     }
     
     override func layoutSubviews() {
-        let width = self.frame.size.width * 8
+        let width = legendLabel.bounds.width
         let height = self.labelHeight
         let yOffset:CGFloat = 0
 
@@ -68,15 +68,16 @@ class DotView: UIView {
         if (xOffset < 0) {
             xOffset = 1
         }
-        if ( (xOffset + width) > self._footer!.frame.size.width ) {
-            xOffset = self._footer!.frame.size.width - (1.5 * width)
 
+        if ( (xOffset + width) > self._footer!.bounds.width ) {
+            xOffset = self._footer!.bounds.width -  width
         }
         
         self.legendLabel.frame = CGRectMake(xOffset, yOffset, width, height)
         
         
     }
+    
     
     func uicolorFromHex(rgbValue:UInt32)->UIColor{
         let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0

@@ -82,6 +82,7 @@ public class ENSideMenu : NSObject {
 
     }
     
+   
     public convenience init(sourceView: UIView, offsetY: CGFloat, menuTableViewController: UITableViewController) {
         self.init(sourceView: sourceView)
         self.menuTableViewController = menuTableViewController
